@@ -1,9 +1,9 @@
 import { Component } from '@angular/core'
-import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated';
+import { RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from '@angular/router-deprecated'
 
 
-import { WelcomeComponent } from './welcome.component';
-import { AboutComponent } from './about.component';
+import { RouteDefinitions } from './route.definitions'
+import { AboutComponent } from './about.component'
 
 
 @Component({
@@ -16,19 +16,7 @@ import { AboutComponent } from './about.component';
     directives: [ROUTER_DIRECTIVES],
     providers: [ROUTER_PROVIDERS]
 })
-@RouteConfig([
-  {
-    path: '/welcome',
-    name: 'Welcome',
-    component: WelcomeComponent,
-    useAsDefault: true
-  },
-  {
-    path: '/about',
-    name: 'About',
-    component: AboutComponent
-  }
-])
+@RouteConfig(RouteDefinitions)
 export class AppComponent {
     title: string = 'This is an Angular 2 app!'
 }
