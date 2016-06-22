@@ -1,8 +1,10 @@
-import { RouteDefinition } from '@angular/router-deprecated'
+import { RouteDefinition, AsyncRoute } from '@angular/router-deprecated'
 
 
 import { WelcomeComponent } from './welcome.component'
-import { AboutComponent } from './about.component'
+
+
+declare var System:any;
 
 
 export const RouteDefinitions: RouteDefinition[] = [
@@ -12,9 +14,9 @@ export const RouteDefinitions: RouteDefinition[] = [
     component: WelcomeComponent,
     useAsDefault: true
   },
-  {
+  new AsyncRoute({
     path: '/about',
-    name: 'About',
-    component: AboutComponent
-  }
+    loader: () => System.import('./dist/about.component').then(m => m.AboutComponent),
+    name: 'About'
+  })
 ]
