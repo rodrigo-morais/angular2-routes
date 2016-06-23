@@ -16,7 +16,7 @@ export const RouteDefinitions: RouteDefinition[] = [
   },
   new AsyncRoute({
     path: '/about',
-    loader: () => System.import('./dist/about.component').then(m => m.AboutComponent),
+    loader: () => System.import('app/about.component').then(m => m.AboutComponent),
     name: 'About'
   })
 ]
